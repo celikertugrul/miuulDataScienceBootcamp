@@ -23,7 +23,7 @@ import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 500)
-df = pd.read_excel('/Users/ertugrulcelik/Desktop/DataSciencePathRecap/1.3. GezinomiKuralTabanlıSınıflandırma/miuul_gezinomi.xlsx')
+df = pd.read_excel('/Users/ertugrulcelik/Desktop/miuulDataScienceBootcamp/GezinomiRuleBasedClassification/miuul_gezinomi.xlsx')
 
 df.head()
 df.shape
@@ -48,6 +48,7 @@ df["ConceptName"].nunique()
 df["ConceptName"].value_counts()
 
 df.groupby("ConceptName").agg({"Price": "count"})
+
 
 # Soru 5: Şehirlere göre satışlardan toplam ne kadar kazanılmış?
 
@@ -123,13 +124,14 @@ agg_df.head()
 agg_df.reset_index(inplace=True)
 
 agg_df.head()
-
+df.head()
 #############################################
 # GÖREV 6: Yeni level based satışları tanımlayınız ve veri setine değişken olarak ekleyiniz.
 #############################################
 # sales_level_based adında bir değişken tanımlayınız ve veri setine bu değişkeni ekleyiniz.
 agg_df['sales_level_based'] = agg_df[["SaleCityName", "ConceptName", "Seasons"]].agg(lambda x: '_'.join(x).upper(), axis=1)
 
+agg_df.head()
 #############################################
 # GÖREV 7: Personaları segmentlere ayırınız.
 #############################################
